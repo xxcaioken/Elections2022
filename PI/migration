@@ -1,0 +1,15 @@
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (13, '2022-10-27', 49, 'www1.folha.uol.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-10-19', 49, 'www.poder360.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (13, '2022-10-19', 52, 'www.poder360.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-10-27', 44, 'www1.folha.uol.com.br'😉
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-10-29', 46, 'www.noticias.uol.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (13, '2022-10-29', 53, 'www.noticias.uol.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-09-05', 51, 'www.g1.globo.com');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (13, '2022-09-05', 52, 'www.g1.globo.com');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-09-28', 54, 'www.poder360.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (22, '2022-09-28', 51, 'www.poder360.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (15, '2022-05-26', 2, 'www.g1.globo.com');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (15, '2022-09-16', 4, 'www.g1.globo.com');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (15, '2022-09-05', 6, 'www.exame.com');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (15, '2022-05-02', 2, 'www.poder36-.com.br');
+insert into pequisa_eleitoral(id_candidato, data_pesquisa, intencao_voto, fonte_pesquisa) values (15, '2022-08-04', 4, 'cartacapital.com.br');
