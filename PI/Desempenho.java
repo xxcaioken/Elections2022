@@ -80,43 +80,21 @@ public class Desempenho extends javax.swing.JFrame {
         inicio.setVisible(true);
 
     }
-    private  List<Pesquisa> lista(){
-        List<Pesquisa> s;
-        s = new ArrayList<Pesquisa>();
-        for (Pesquisa p : new MysqlCon().conectaPesquisa("select * from pesquisa_eleitoral")) {
-            s.add(p);
-        }
-            return s;
-    }
-    private List<Pesquisa> setaList( List<Pesquisa> p){
-        this.listaDeDesempenho.add(p);
-    }
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Desempenho.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Desempenho.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Desempenho.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Desempenho.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Desempenho().setVisible(true);
-            }
-        });
-    }
+    // private  List<Pesquisa> lista(){
+    //     List<Pesquisa> s;
+    //     s = new ArrayList<Pesquisa>();
+    //     for (Pesquisa p : new CandidatoStorage().selectList()) {
+    //         s.add(p);
+    //     }
+    //         return s;
+    // }
+   
+    // public static void main(String args[]) {
+    //     java.awt.EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             new Desempenho().setVisible(true);
+    //         }
+    //     });
+    // }
 
 }

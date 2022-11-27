@@ -1,32 +1,22 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
+
 
 class MysqlCon {
-    
-    public List<Pesquisa> conectaPesquisa(String query) {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pi", "root",
-                    "dev1");
+    private static String user="root";
+    private static String url="jdbc:mysql://localhost:3306/pi";
+    private static String password="dev1";
+    private static Connection conexao;
+    private MysqlCon(){};
 
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            Pesquisa p = new Pesquisa();
-            List<Pesquisa> lista;
-            lista = new ArrayList<Pesquisa>();
-            while (rs.next()) {
-                p.addParaLista(rs.getInt(1), rs.getInt(2), rs.getString(3));
-                lista.add(p);
-            }
-            con.close();
-            return lista;
-        } catch (Exception e) {
-            System.out.println(e);
+    public static Connection getConexao() throws SQLException {
+        if (conexao == null) {
+            conexao = DriverManager.getConnection(url, user, password);
         }
-        return null;
+        return conexao;
     }
+    
+
+
 }

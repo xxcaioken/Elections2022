@@ -25,6 +25,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Cadastro");
@@ -48,10 +49,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); 
         jLabel1.setText("Projeto Aplicado");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         jLabel2.setText("Alunos : Caio Kormives, Vinícius Melo e Davi Peres ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,11 +91,11 @@ public class Inicio extends javax.swing.JFrame {
                                 .addContainerGap(186, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        new CandidatoStorage().selectList();
         this.dispose();
-
         new CadastroCandidato().setVisible(true);
     }
 
