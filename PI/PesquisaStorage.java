@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class PesquisaStorage {
     private static List<Pesquisa> pesquisas = new ArrayList<>();
 
-    public List<Pesquisa> selectList() {
+    public static List<Pesquisa> selectList() {
         Pesquisa p = new Pesquisa();
         try {
             Connection con = MysqlCon.getConexao();
@@ -93,5 +93,25 @@ public class PesquisaStorage {
         } catch (Exception e) {
             System.out.println(e);
         } 
+    }
+    public static Pesquisa selectPesquisa(String id) {
+        try {
+            Pesquisa p = new Pesquisa();
+            Connection con = MysqlCon.getConexao();
+            Statement stmt = con.createStatement();
+            String query ="select * from pesquisa_eleitoral where id = "+ String.valueOf(id);
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                p.setId(rs.getInt(1));
+                p.setIdCandidato(rs.getInt(2));
+                p.setData(rs.getString(3));
+                p.setIntencaoDeVoto(rs.getInt(4));
+                p.setFontePesquisa(rs.getString(5));
+            }
+            return p;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 }

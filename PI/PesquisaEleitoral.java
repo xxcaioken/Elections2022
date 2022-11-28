@@ -10,8 +10,10 @@ public class PesquisaEleitoral extends javax.swing.JFrame {
         private javax.swing.JTextField jTextField2;
         private javax.swing.JTextField jTextField3;
         private javax.swing.JTextField jTextField4;
-
-        public PesquisaEleitoral() {
+        private String id;
+        private Pesquisa pesquisa;
+        public PesquisaEleitoral(String id) {
+                this.id = id;
                 initComponents();
         }
 
@@ -24,13 +26,15 @@ public class PesquisaEleitoral extends javax.swing.JFrame {
                 jTextField1 = new javax.swing.JTextField();
                 jTextField2 = new javax.swing.JTextField();
                 jTextField3 = new javax.swing.JTextField();
-                jLabel5 = new javax.swing.JLabel();
                 jTextField4 = new javax.swing.JTextField();
+                jLabel5 = new javax.swing.JLabel();
                 jButton3 = new javax.swing.JButton();
                 jButton4 = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+                if (this.id != "0"){
+                        this.pesquisa = cadastroDefault(this.id);
+                }
                 jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
                 jLabel1.setText("Pesquisa Eleitoral");
 
@@ -84,7 +88,17 @@ public class PesquisaEleitoral extends javax.swing.JFrame {
                                 jButton4ActionPerformed(evt);
                         }
                 });
-
+                if(this.pesquisa!=null){
+                        String n = String.valueOf(this.pesquisa.getIdCandidato());
+                        String p = this.pesquisa.getData();
+                        String i = String.valueOf(this.pesquisa.getIntencaoDeVoto());
+                        String f = this.pesquisa.getFontePesquisa();
+                        jTextField1.setText(n);
+                        jTextField2.setText(p);
+                        jTextField3.setText(i);
+                        jTextField4.setText(f);
+                }
+              
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -237,5 +251,8 @@ public class PesquisaEleitoral extends javax.swing.JFrame {
                 p.setFontePesquisa(jTextField4.getText());
                 new PesquisaStorage().insertList(p);
                 
+        }
+        public Pesquisa cadastroDefault(String id) {
+                return PesquisaStorage.selectPesquisa(id);
         }
 }

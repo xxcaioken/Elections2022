@@ -1,3 +1,4 @@
+
 public class CadastroCandidato extends javax.swing.JFrame {
         private javax.swing.JButton jButton1;
         private javax.swing.JLabel jLabel1;
@@ -12,13 +13,16 @@ public class CadastroCandidato extends javax.swing.JFrame {
         private javax.swing.JToggleButton jToggleButton3;
         private javax.swing.JToggleButton jToggleButton4;
         private javax.swing.JToolBar jToolBar1;
+        private int id = 0;
+        private Candidato candidato;
 
-        public CadastroCandidato() {
+        public CadastroCandidato(String id) {
+                this.id = Integer.valueOf(id);
                 initComponents();
+                
         }
 
         private void initComponents() {
-
                 jToolBar1 = new javax.swing.JToolBar();
                 jTextField1 = new javax.swing.JTextField();
                 jLabel1 = new javax.swing.JLabel();
@@ -34,7 +38,9 @@ public class CadastroCandidato extends javax.swing.JFrame {
                 jToggleButton4 = new javax.swing.JToggleButton();
 
                 jToolBar1.setRollover(true);
-
+                if (this.id != 0){
+                        this.candidato = CadastroDefault(this.id);
+                }
                 jTextField1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jTextField1ActionPerformed(evt);
@@ -55,7 +61,14 @@ public class CadastroCandidato extends javax.swing.JFrame {
 
                 jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
                 jLabel4.setText("Partido:");
-
+                if(this.candidato!=null){
+                        String i =String.valueOf(this.candidato.getId());
+                        String n =this.candidato.getNome();
+                        String p = this.candidato.getPartido();
+                        jTextField6.setText(i);
+                        jTextField7.setText(n);
+                        jTextField5.setText(p);
+                }
                 jTextField5.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jTextField5ActionPerformed(evt);
@@ -152,7 +165,7 @@ public class CadastroCandidato extends javax.swing.JFrame {
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                 174,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                .addContainerGap(118, Short.MAX_VALUE))
+                                                                .addContainerGap(150, Short.MAX_VALUE))
                                                 .addGroup(layout.createSequentialGroup()
                                                                 .addGap(33, 33, 33)
                                                                 .addComponent(jButton1)
@@ -236,32 +249,34 @@ public class CadastroCandidato extends javax.swing.JFrame {
                 pack();
         }
 
+        public Candidato CadastroDefault(int id) {
+                return CandidatoStorage.selectCandidato(id);
+        }
+
+        public void setaAsCoisa() {
+            
+        }
+
         private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-                System.out.println("01");
         }
 
         private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {
-                System.out.println("02");
 
         }
 
         private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {
 
-                System.out.println("013");
         }
 
         private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {
 
-                System.out.println("014");
         }
 
         private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-                System.out.println("back");
                 this.dispose();
-                Inicio inicio = new Inicio();
-
-                inicio.setDefaultCloseOperation(Inicio.DISPOSE_ON_CLOSE);
-                inicio.setVisible(true);
+                ListaCandidato l = new ListaCandidato();
+                l.setDefaultCloseOperation(Inicio.DISPOSE_ON_CLOSE);
+                l.setVisible(true);
 
         }
 

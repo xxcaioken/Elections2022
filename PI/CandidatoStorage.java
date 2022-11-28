@@ -11,28 +11,43 @@ public class CandidatoStorage {
     private static int incremento = 1;
 
     public static List<Candidato> selectList() {
-        Candidato p = new Candidato();
+        List<Candidato> lista = new ArrayList<>();
         try {
             Connection con = MysqlCon.getConexao();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from candidato");
-            List<Candidato> lista;
-            lista = new ArrayList<Candidato>();
             while (rs.next()) {
+                Candidato p = new Candidato();
                 p.setId(rs.getInt(1));
                 p.setNome(rs.getString(2));
                 p.setpartido(rs.getString(3));
                 lista.add(p);
             }
             System.out.println(lista);
-            return lista;
         } catch (Exception e) {
             System.out.println(e);
+        }
+        return lista;
+    }
 
+    public static Candidato selectCandidato(int id) {
+        try {
+            Candidato p = new Candidato();
+            Connection con = MysqlCon.getConexao();
+            Statement stmt = con.createStatement();
+            String query ="select * from candidato where id = "+ String.valueOf(id);
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                p.setId(rs.getInt(1));
+                p.setNome(rs.getString(2));
+                p.setpartido(rs.getString(3));
+            }
+            return p;
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return null;
     }
-
     public void insertList(Candidato c) {
         incremento++;
         candidatos.add(c);

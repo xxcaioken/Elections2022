@@ -47,4 +47,8 @@ public class Pesquisa {
         this.idDaPesquisa = id;
     }
 
+    public Pesquisa get(int rowIdx) {
+        return null;
+    }
+
 }

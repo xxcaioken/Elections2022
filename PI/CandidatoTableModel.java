@@ -9,10 +9,13 @@ public class CandidatoTableModel extends AbstractTableModel {
             "Nome",
             "Partido" };
 
-    public CandidatoTableModel(List<Candidato> candidatos) {
-        this.candidatos = candidatos;
+    public CandidatoTableModel() {
+        this.candidatos = setCandidatoList();
     }
-
+    public static List<Candidato> setCandidatoList(){
+        new CandidatoStorage();
+        return CandidatoStorage.selectList();
+    }
     @Override
     public int getRowCount() {
         return candidatos.size();
@@ -61,9 +64,12 @@ public class CandidatoTableModel extends AbstractTableModel {
     }
 
     public Candidato getCandidato(int rowIdx) {
-        Candidato tarefa = null;
-        tarefa = candidatos.get(rowIdx);
-        return tarefa;
+        Candidato candidato = null;
+        candidato = candidatos.get(rowIdx);
+        return candidato;
     }
-
+    
+    public List<Candidato> getCandidatos() {
+        return this.candidatos;
+    }
 }
